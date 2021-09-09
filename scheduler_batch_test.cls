@@ -49,13 +49,13 @@ global class OpportunityBatch implements database.batchable<sObject>{
 public class OpportunityBatchtest{
 	//query the activities to process
 	static testmethod void OpportunityTestMethod(){
-		Opporunity oppty = new Opportunity ();
+		Opportunity oppty = new Opportunity ();
 		oppty.name = ‘test Oppty’;
 		oppty.status__c = ‘submitted’;
 		insert oppty;
 		OpportunityBatch opptybatch = new OpportunityBatch ();
 		Status = ‘Submitted’;
-		opptybatch.opptyList = 'select name,AccountName__c from Opportunity where status__c =\''+ status +'\’ and id=\' AND Id=\''+claim.id+'\'';
+		opptybatch.opptyList = 'SELECT name,AccountName__c FROM Opportunity WHERE status__c =\''+ status +'\’ AND id=\' AND Id=\''+claim.id+'\'';
 		Database.executebatch(opptybatch);
 	}
 }
